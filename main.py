@@ -4,7 +4,6 @@ from telebot.types import Update
 app=Flask(__name__)
 apikey='5820722020:AAE04TjGoFouhLZ54MDMpssc3j46HhINAqw'
 bot=TeleBot(apikey)
-bot.run_webhooks('https://hbfjgh.onrender.com/5820722020:AAE04TjGoFouhLZ54MDMpssc3j46HhINAqw')
 @bot.message_handler(func=lambda message:True)
 def send(message):
     print(message)
@@ -16,6 +15,8 @@ def send2():
         print(json_string)
         update=Update.de_json(json_string)
         bot.process_new_updates([update])
-        return "done"
+        print(bot.get_me())
+        jsot=json.loads(json_string)['message']['text'].split('\n')
+        return ''
 if __name__=='__main__':
     app.run()
