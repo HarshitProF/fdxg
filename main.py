@@ -23,9 +23,13 @@ def send2():
             'stoploss':jsot[15].split(":")[1]
         }
         message1=f"✨{data['pair']}\n\n🎗 Trade Type={data['type']}\n\n💫 Leverage={data['leverage']}\n\n⚡️ Entry={data['entry']}\n\n❌ StopLoss={data['stoploss']}\n\n❎ Take profit={data['targets']}"
-        url=f"https://api.telegram.org/bot{apikey}/sendMessage?chat_id={chat_id}&text={message1}"
-        result=requests.get(url)
-        print(result.text)
+        message2=f"📍 {data['pair']}\n\n🏹 Signal Type:- {data['type']}\n\n💫Leverage: {data['leverage']}\n\n👉 Entry Targets:- {data['entry']}\n\n🎯 Profit Targets:\n1) {data['targets'][0]}\n2) {data['targets'][1]}\n3) {data['targets'][2]}\n4) {data['targets'][3]}\n5) {data['targets'][4]}\n6) {data['targets'][5]}\n7) {data['targets'][6]}\n\n🛑 Stop Target: {data['stoploss']} "
+        message3=f"⚡️💫 {data['pair']} 💫⚡️\n\n[{data['type']}]:{data['entry']}\n\n✨🎯 TARGETS ✨🎯\n\n1.Goal👉 {data['targets'][0]}\n2.Goal👉 {data['targets'][1]}\n3.Goal👉 {data['targets'][2]}\n4.Goal👉 {data['targets'][3]}\n5.Goal👉 {data['targets'][4]}\n6.Goal👉 {data['targets'][5]}\n7.Goal👉 {data['targets'][6]}\n\nSL🛑:- {data['stoploss']}\n\n🎗 LEVERAGE:- {data['leverage']}"
+        messages=[message1,message2,message3]
+        for message in messages:
+            url=f"https://api.telegram.org/bot{apikey}/sendMessage?chat_id={chat_id}&text={message}"
+            result=requests.get(url)
+            print(result.text)
         return ''
 if __name__=='__main__':
     app.run()
