@@ -21,7 +21,7 @@ def send2():
             'targets':[float(jsot[7].split(":")[1]),float(jsot[8].split(":")[1]),float(jsot[9].split(":")[1]),float(jsot[10].split(":")[1]),float(jsot[11].split(":")[1]),float(jsot[12].split(":")[1]),float(jsot[13].split(":")[1])],
             'stoploss':jsot[15].split(":")[1]
         }
-        message1=f"✨{data['pair']}\n\n🎗 Trade Type={data['type']}\n\n💫 Leverage={data['leverage']}\n\n⚡️ Entry={data['entry']}\n\n❌ StopLoss={data['stoploss']}\n\n❎ Take profit={data['tagets']}"
+        message1=f"✨{data['pair']}\n\n🎗 Trade Type={data['type']}\n\n💫 Leverage={data['leverage']}\n\n⚡️ Entry={data['entry']}\n\n❌ StopLoss={data['stoploss']}\n\n❎ Take profit={data['targets']}"
         url=f"https://api.telegram.org/bot{apikey}/sendMessage?chat_id={chat_id}&text={message1}"
         result=requests.get(url)
         print(result.text)
