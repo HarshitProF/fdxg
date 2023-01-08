@@ -11,6 +11,7 @@ def send2():
         print(json_string)
         update=Update.de_json(json_string)
         jsot=json.loads(json_string)['message']['text'].split('\n')
+        print(jsot)
         return ''
 if __name__=='__main__':
     app.run()
