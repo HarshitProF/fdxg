@@ -13,12 +13,12 @@ def send2():
         jsot=json.loads(json_string)['message']['text'].split('\n')
         data={
             'dat':jsot[0],
-            'pair':jost[2].split(":")[1],
-            'type':jost[3],
-            'leverage':jost[4].split(":")[1],
-            'entery':jost[5].split(":")[1],
-            'target':[jost[7].split(":")[1],jost[8].split(":")[1],jost[9].split(":")[1],jost[10].split(":")[1],jost[11].split(":")[1],jost[12].split(":")[1],jost[13].split(":")[1]],
-            'stoploss':jost[15].split(":")[1]
+            'pair':jsot[2].split(":")[1],
+            'type':jsot[3],
+            'leverage':jsot[4].split(":")[1],
+            'entery':jsot[5].split(":")[1],
+            'target':[jsot[7].split(":")[1],jsot[8].split(":")[1],jsot[9].split(":")[1],jsot[10].split(":")[1],jsot[11].split(":")[1],jsot[12].split(":")[1],jsot[13].split(":")[1]],
+            'stoploss':jsot[15].split(":")[1]
         }
         print(data)
         return ''
