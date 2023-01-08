@@ -17,7 +17,7 @@ def send2():
             'type':jsot[3],
             'leverage':jsot[4].split(":")[1],
             'entery':jsot[5].split(":")[1],
-            'target':[jsot[7].split(":")[1],jsot[8].split(":")[1],jsot[9].split(":")[1],jsot[10].split(":")[1],jsot[11].split(":")[1],jsot[12].split(":")[1],jsot[13].split(":")[1]],
+            'target':[float(jsot[7].split(":")[1]),float(jsot[8].split(":")[1]),float(jsot[9].split(":")[1]),float(jsot[10].split(":")[1]),float(jsot[11].split(":")[1]),float(jsot[12].split(":")[1]),float(jsot[13].split(":")[1])],
             'stoploss':jsot[15].split(":")[1]
         }
         print(data)
