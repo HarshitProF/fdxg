@@ -14,5 +14,6 @@ def send2():
         json_string=request.get_data().decode('utf-8')
         update=Update.de_json(json_string)
         bot.process_new_updates([update])
+        return "done"
 if __name__=='__main__':
     app.run()
