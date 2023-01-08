@@ -8,12 +8,7 @@ bot=TeleBot(apikey)
 def send(message):
     print(message)
     bot.reply_to(message,text="hello")
-@app.route('/')
-def setweb():
-    url=url_for(setweb)+apikey
-    bot.remove_webhook(url)
-    return  bot.remove_webhook(url)
-@app.route(url_for(setweb)+apikey,methods=['POST'])
+@app.route(f'/'+apikey,methods=['POST'])
 def send2():
     if request.method=='POST':
         json_string=request.get_data().decode('utf-8')
