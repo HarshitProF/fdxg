@@ -15,10 +15,10 @@ def send2():
             jsot1=json.loads(json_string)['message']
         except :
             jsot1=json.loads(json_string)['edited_message']['text'].split('\n')
-        chat_id=json1['from']['id']
+        chat_id=jsot1['from']['id']
         jsot=jsot1['text'].split('\n')
         print(jsot)
-        """data={
+        data={
             'dat':jsot[0],
             'pair':jsot[2].split(":")[1],
             'type':jsot[3],
@@ -34,7 +34,7 @@ def send2():
         for message in messages:
             url=f"https://api.telegram.org/bot{apikey}/sendMessage?chat_id={chat_id}&text={message}"
             result=requests.get(url)
-            print(result.text)"""
+            print(result.text)
 
         return ''
 if __name__=='__main__':
