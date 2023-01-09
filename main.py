@@ -13,7 +13,7 @@ def send2():
         update=Update.de_json(json_string)
         jsot=json.loads(json_string)['message']['text'].split('\n')
         chat_id=json.loads(json_string)['message']['from']['id']
-        print(jsot[2])
+        print(jsot)
         """data={
             'dat':jsot[0],
             'pair':jsot[2].split(":")[1],
