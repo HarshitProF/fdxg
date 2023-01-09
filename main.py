@@ -11,7 +11,10 @@ def send2():
         json_string=request.get_data().decode('utf-8')
         print(json_string)
         update=Update.de_json(json_string)
-        jsot=json.loads(json_string)['message']['text'].split('\n')
+        try:
+            jsot=json.loads(json_string)['message']['text'].split('\n')
+        except :
+            jsot=json.loads(json_string)['edited_message']['text'].split('\n')
         chat_id=json.loads(json_string)['message']['from']['id']
         print(jsot)
         """data={
