@@ -12,11 +12,13 @@ def send2():
         print(json_string)
         update=Update.de_json(json_string)
         try:
-            jsot1=json.loads(json_string)['message']
+            jsot=json.loads(json_string)['message']['text'].split('\n')
         except :
-            jsot1=json.loads(json_string)['edited_message']['text'].split('\n')
-        chat_id=jsot1['from']['id']
-        jsot=jsot1['text'].split('\n')
+            jsot=json.loads(json_string)['edited_message']['text'].split('\n')
+        try:
+            chat_id=json.loads(json_string)['message']['from']['id']
+        except:
+            chat_id=json.loads(json_string)['edited_message']['from']['id']
         print(jsot)
         data={
             'dat':jsot[0],
