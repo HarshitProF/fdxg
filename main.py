@@ -13,7 +13,8 @@ def send2():
         update=Update.de_json(json_string)
         jsot=json.loads(json_string)['message']['text'].split('\n')
         chat_id=json.loads(json_string)['message']['from']['id']
-        data={
+        print(jsot[2])
+        """data={
             'dat':jsot[0],
             'pair':jsot[2].split(":")[1],
             'type':jsot[3],
@@ -29,7 +30,8 @@ def send2():
         for message in messages:
             url=f"https://api.telegram.org/bot{apikey}/sendMessage?chat_id={chat_id}&text={message}"
             result=requests.get(url)
-            print(result.text)
+            print(result.text)"""
+
         return ''
 if __name__=='__main__':
     app.run()
