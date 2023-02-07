@@ -1,1 +1,1 @@
-web : uwsgi uwsgi.ini
+gunicorn -w 4 'main:app'
